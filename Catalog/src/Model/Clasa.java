@@ -11,7 +11,6 @@ public class Clasa implements Nameable{
 	protected List<Student> studenti=new ArrayList<Student>();
 	protected Catalog catalog=new Catalog();
 	protected Profesor diriginte;
-	protected HashMap<Profesor,Materie> ore=new HashMap<Profesor,Materie>();
 	
 	public Clasa(Profesor diriginte) {
 		this.diriginte=diriginte;
@@ -30,6 +29,7 @@ public class Clasa implements Nameable{
 	public void addStudent(Student student) {
 		studenti.add(student);
 		student.setSchoolClass(this);
+		catalog.initSituatie(student);
 	}
 	
 	public Profesor getDiriginte(Profesor diriginte) {

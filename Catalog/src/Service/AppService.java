@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+import Model.Catalog;
 import Model.Clasa;
 import Model.Diriginte;
 import Model.Materie;
@@ -15,14 +16,10 @@ public class AppService {
 	private static List<Clasa> clase=new ArrayList<Clasa>();
 	private static List<Profesor> profesori=new ArrayList<Profesor>();
 	private static List<Student> studenti=new ArrayList<Student>();
-	private static List<Materie> materii=new ArrayList<Materie>();
+	private static List<Materie> materii=Catalog.materii;
 
 	public AppService() {
-		materii.add(new Materie("Romana"));
-		materii.add(new Materie("Matematica"));
-		materii.add(new Materie("Fizica"));
-		materii.add(new Materie("Engleza"));
-		materii.add(new Materie("Franceza"));
+
 	}
 	
 	public void adaugaClasa(String clasa_numa,String diriginte_nume) {
@@ -35,11 +32,14 @@ public class AppService {
 		Profesor prof=new Profesor();
 		prof.setMaterie(getMaterie(materie));
 		prof.setName(nume);
+		profesori.add(prof);
 	}
 	
-	public void adaugaStudentClasa(String student_nume,String clasa_nume) {
+	public void adaugaStudent(String student_nume,String clasa_nume) {
 		Clasa clasa=getClasa(clasa_nume);
-		Student student=getStudent(student_nume);
+		Student student=new Student();
+		student.setName(student_nume);
+		
 		clasa.addStudent(student);
 		studenti.add(student);
 	}

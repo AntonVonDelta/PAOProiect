@@ -63,7 +63,7 @@ public class Main {
 					
 					o("Clasa: ");
 					String clasa_nume=scanner.nextLine();
-					service.adaugaStudentClasa(student_nume,clasa_nume);
+					service.adaugaStudent(student_nume,clasa_nume);
 					break;
 				}
 				case 4:{
