@@ -2,26 +2,32 @@
 
 Student, Materie, Profesor
 
-Catalog - Serviciu
-- Va mentine datele despre note si anul scolar curent
-public getCurrentDate()
-public setCurrentDate()
+**Catalog - Serviciu**
 
-Interfata: Nameable
+Va mentine datele despre note si anul scolar curent
+```
+public getCurrentDate()  
+public setCurrentDate()\n
+```
+
+**Interfata: Nameable**  
+```
 setName()
 getName()
+```
 
 
-
-Student:
+**Student**:
+```
 mediaLaMateria(Materie)
 mediaPeSemestru(int)
 setName()
 getName()
+```
 
 
-
-Profesor()
+**Profesor**:
+```
 noteaza(Student,Materie,nota)
 absenta(Student,Materie,data)
 motiveaza(Student,Materie,data)
@@ -29,10 +35,11 @@ predaMateria(Materie,Student[])
 
 setName()
 getName()
+```
 
 
-
-Materie()
-
+**Materie**
+```
 setName()
 getName()
+```
