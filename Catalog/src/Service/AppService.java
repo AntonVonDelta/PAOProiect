@@ -1,4 +1,4 @@
-package Program;
+package Service;
 
 public class AppService {
 
