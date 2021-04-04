@@ -10,10 +10,10 @@ public class Clasa implements Nameable{
 	protected String nume;
 	protected List<Student> studenti=new ArrayList<Student>();
 	protected Catalog catalog=new Catalog();
-	protected Diriginte diriginte;
+	protected Profesor diriginte;
 	protected HashMap<Profesor,Materie> ore=new HashMap<Profesor,Materie>();
 	
-	public Clasa(Diriginte diriginte) {
+	public Clasa(Profesor diriginte) {
 		this.diriginte=diriginte;
 	}
 	
@@ -22,7 +22,7 @@ public class Clasa implements Nameable{
 		studenti.add(student);
 	}
 	
-	public Diriginte getDiriginte(Diriginte diriginte) {
+	public Profesor getDiriginte(Profesor diriginte) {
 		return diriginte;
 	}
 	
