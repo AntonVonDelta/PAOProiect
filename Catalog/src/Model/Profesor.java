@@ -12,8 +12,8 @@ public class Profesor implements Nameable{
 	public void noteazaStudent(int semestru,Student student,int nota) {
 		student.getSchoolClass().getSituatie(semestru,this,student).noteaza(new Date(), nota);
 	}
-	public void absenteazaStudent(int semestru,Clasa clasa,Student student) {
-		clasa.getSituatie(semestru,this,student).absenteaza(new Date());
+	public void absenteazaStudent(int semestru,Student student) {
+		student.getSchoolClass().getSituatie(semestru,this,student).absenteaza(new Date());
 	}
 	
 	public void setMaterie(Materie materie) {
