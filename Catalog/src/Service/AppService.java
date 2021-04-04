@@ -26,22 +26,42 @@ public class AppService {
 	}
 	
 	public void adaugaClasa(String clasa_numa,String diriginte_nume) {
-		Clasa clasa=new Clasa(getDiriginte(diriginte_nume));
+		Clasa clasa=new Clasa(getProfesor(diriginte_nume));
 		clasa.setName(clasa_numa);
 		clase.add(clasa);
 	}
-	public void adaugaProfesor(String nume) {
+	
+	public void adaugaProfesor(String nume,String materie) {
 		Profesor prof=new Profesor();
+		prof.setMaterie(getMaterie(materie));
 		prof.setName(nume);
 	}
 	
-	private Profesor getDiriginte(String diriginte) {
+	public void adaugaStudentClasa(String student_nume,String clasa_nume) {
+		Clasa clasa=getClasa(clasa_nume);
+		Student student=getStudent(student_nume);
+		clasa.addStudent(student);
+		studenti.add(student);
+	}
+	
+	
+	public Profesor getProfesor(String diriginte) {
 		Predicate<Profesor> pred=profesor->profesor.getName().equals(diriginte);
 		return profesori.stream().filter(pred).findFirst().get();
 	}
 	
-	private Clasa getClasa(String clasa_nume) {
+	public Clasa getClasa(String clasa_nume) {
 		Predicate<Clasa> pred=clasa->clasa.getName().equals(clasa_nume);
 		return clase.stream().filter(pred).findFirst().get();
+	}
+	
+	public Materie getMaterie(String materie_nume) {
+		Predicate<Materie> pred=materie->materie.getName().equals(materie_nume);
+		return materii.stream().filter(pred).findFirst().get();
+	}
+	
+	public Student getStudent(String student_nume) {
+		Predicate<Student> pred=student->student.getName().equals(student_nume);
+		return studenti.stream().filter(pred).findFirst().get();
 	}
 }

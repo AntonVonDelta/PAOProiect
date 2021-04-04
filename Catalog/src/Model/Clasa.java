@@ -17,9 +17,19 @@ public class Clasa implements Nameable{
 		this.diriginte=diriginte;
 	}
 	
+	protected Situatie getSituatie(int semestru,Profesor profesor,Student student) {
+		if(semestru==1) {
+			HashMap<Materie,Situatie> result= catalog.getSem1().get(student);
+			return result.get(profesor.getMaterie());
+		}else {
+			HashMap<Materie,Situatie> result= catalog.getSem2().get(student);
+			return result.get(profesor.getMaterie());	
+		}
+	}
 	
 	public void addStudent(Student student) {
 		studenti.add(student);
+		student.setSchoolClass(this);
 	}
 	
 	public Profesor getDiriginte(Profesor diriginte) {

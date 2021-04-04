@@ -9,19 +9,15 @@ import java.util.stream.Collectors;
 class Nota{
 	public Date data;
 	public int nota;
-	public Materie materie;
-	public Nota(Date data,int nota,Materie materia) {
+	public Nota(Date data,int nota) {
 		this.data=data;
 		this.nota=nota;
-		this.materie=materia;
 	}
 }
 class Absenta{
 	public Date data;
-	public Materie materie;
-	public Absenta(Date data,Materie materia) {
+	public Absenta(Date data) {
 		this.data=data;
-		this.materie=materia;
 	}
 }
 
@@ -34,16 +30,16 @@ public class Situatie {
 		this.student=student;
 	}
 	
-	public void noteaza(Date data,int nota,Materie materia) {
-		note.add(new Nota(data,nota,materia));
+	public void noteaza(Date data,int nota) {
+		note.add(new Nota(data,nota));
 	}
 	
-	public void noteaza(Date data,Materie materia) {
-		absente.add(new Absenta(data,materia));
+	public void absenteaza(Date data) {
+		absente.add(new Absenta(data));
 	}
 	
-	public void motiveaza(Date data,Materie materia){
-		Predicate<Absenta> pred=absenta -> !(absenta.data.equals(data) && absenta.materie.equals(materia));
+	public void motiveaza(Date data){
+		Predicate<Absenta> pred=absenta -> !(absenta.data.equals(data));
 		
 		absente=absente.stream().filter(pred).collect(Collectors.toList());
 	}
