@@ -2,7 +2,7 @@
 
 Student, Materie, Profesor
 
-** Serviciu**
+**Serviciu**
 
 Va mentine datele despre studenti, profesori, materii si clase
 ```
