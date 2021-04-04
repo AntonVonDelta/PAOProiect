@@ -1,5 +1,5 @@
 package Model;
 
-public class Diriginte {
+public class Diriginte extends Profesor {
 
 }

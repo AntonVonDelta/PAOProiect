@@ -6,6 +6,9 @@ public class Profesor implements Nameable{
 	protected String nume;
 	protected Materie materie_predata;
 	
+	
+	
+	
 	public void setMaterie(Materie materie) {
 		materie_predata=materie;
 	}
