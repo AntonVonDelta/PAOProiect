@@ -1,6 +1,28 @@
 # PAOProiect
 
-Student, Materie, Profesor
+Student, Materie, Profesor, Clasa, Catalog, Situatie
+```
+Optiuni posibile:
+0) Iesire program
+1) Creeaza clasa
+2) Creeaza profesor
+3) Creeaza student
+4) Noteaza student
+5) Pune absenta
+6) Afiseaza clasele
+7) Afiseaza profesorii
+8) Afiseaza materiile
+9) Afiseaza studentii
+10) Afiseaza note student
+11) Afiseaza absente student
+12) Adauga materie
+13) Adauga materii default
+20) Scrie in CSV
+```
+Se recomanda executarea comenzilor in ordinea:
+ - 2\) Creeaza profesor
+ - 1\) Creeaza clasa
+ - 3\) Creeaza student
 
 **Serviciu**
 
