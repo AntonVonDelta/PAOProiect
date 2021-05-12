@@ -16,14 +16,21 @@ public class Clasa implements Nameable{
 		this.diriginte=diriginte;
 	}
 	
-	protected Situatie getSituatie(int semestru,Profesor profesor,Student student) {
-		if(semestru==1) {
-			HashMap<Materie,Situatie> result= catalog.getSem1().get(student);
-			return result.get(profesor.getMaterie());
-		}else {
-			HashMap<Materie,Situatie> result= catalog.getSem2().get(student);
-			return result.get(profesor.getMaterie());	
-		}
+	// Seteaza materiile predate in aceasta clasa
+	public void setMaterii(List<Materie> materii) {
+		catalog.setMaterii(materii);
+	}
+	
+	// Metoda accesibila doar profesorului aka accesata din perspectiva lui
+	protected Situatie getSituatie(Profesor profesor,Student student) {
+		HashMap<Materie,Situatie> result= catalog.getSem().get(student);
+		return result.get(profesor.getMaterie());
+	}
+	
+	// Metoda folosita de persoane terte eg parinti
+	public Situatie getSituatie(Materie materie,Student student) {
+		HashMap<Materie,Situatie> result= catalog.getSem().get(student);
+		return result.get(materie);
 	}
 	
 	public void addStudent(Student student) {
@@ -31,8 +38,11 @@ public class Clasa implements Nameable{
 		student.setSchoolClass(this);
 		catalog.initSituatie(student);
 	}
+	public List<Student> getStudenti(){
+		return studenti;
+	}
 	
-	public Profesor getDiriginte(Profesor diriginte) {
+	public Profesor getDiriginte() {
 		return diriginte;
 	}
 	
