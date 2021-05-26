@@ -18,10 +18,6 @@ public class AppService {
 	private static List<Profesor> profesori=new ArrayList<Profesor>();
 	private static List<Student> studenti=new ArrayList<Student>();
 	private static List<Materie> materii=new ArrayList<Materie>();
-
-	public AppService() {
-
-	}
 	
 	public void adaugaMaterii(List<Materie> materii_in) throws Exception {
 		materii.addAll(materii_in);

@@ -20,12 +20,12 @@ import Service.Database;
 
 public class Main {
 	public static void main(String[] args) throws Exception {
+		boolean loop=true;
 		SimpleDateFormat formatter=new SimpleDateFormat("dd/MM/yyyy");
 		Scanner scanner=new Scanner(System.in);
 		AppService service=new AppService();
 		Database database=Database.getInstance(service);
 		Audit logger=Audit.getInstance();
-		boolean loop=true;
 		
 		String menu=
 				"Optiuni posibile:\n"
