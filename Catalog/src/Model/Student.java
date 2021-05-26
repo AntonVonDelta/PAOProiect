@@ -12,7 +12,9 @@ public class Student implements Nameable {
 	public void setSchoolClass(Clasa clasa) {
 		this.clasa=clasa;
 	}
-	
+	public Situatie getSituatie(Materie materie) {
+		return clasa.getSituatie(materie, this);
+	}
 	@Override
 	public void setName(String name) {
 		nume=name;	

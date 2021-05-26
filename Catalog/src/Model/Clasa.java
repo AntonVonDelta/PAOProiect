@@ -16,6 +16,10 @@ public class Clasa implements Nameable{
 		this.diriginte=diriginte;
 	}
 	
+	public Catalog getCatalog() {
+		return catalog;
+	}
+	
 	// Seteaza materiile predate in aceasta clasa
 	public void setMaterii(List<Materie> materii) {
 		catalog.setMaterii(materii);

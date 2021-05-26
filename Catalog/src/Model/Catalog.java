@@ -19,6 +19,9 @@ public class Catalog {
 	public void setMaterii(List<Materie> materii) {
 		this.materii=materii;
 	}
+	public List<Materie> getMaterii(){
+		return materii;
+	}
 	
 	public void initSituatie(Student student) {
 		HashMap<Materie,Situatie> temp1=new HashMap<Materie,Situatie>();

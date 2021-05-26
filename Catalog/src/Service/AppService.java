@@ -1,5 +1,6 @@
 package Service;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -58,14 +59,19 @@ public class AppService {
 		clasa.addStudent(student);
 		studenti.add(student);
 	}
-
+	public void adaugaStudent(Student student) throws Exception {
+		Clasa clasa=student.getSchoolClass();
+		
+		clasa.addStudent(student);
+		studenti.add(student);
+	}
 	
 	
-	public Profesor getProfesor(String diriginte) throws Exception {
-		Predicate<Profesor> pred=profesor->profesor.getName().equals(diriginte);
+	public Profesor getProfesor(String nume) throws Exception {
+		Predicate<Profesor> pred=profesor->profesor.getName().equals(nume);
 		Optional<Profesor> prof= profesori.stream().filter(pred).findFirst();
 		
-		if(prof.isEmpty()) throw new Exception("Profesorul "+diriginte+" nu exista");
+		if(prof.isEmpty()) throw new Exception("Profesorul "+nume+" nu exista");
 		return prof.get();
 	}
 	
@@ -116,5 +122,18 @@ public class AppService {
 		loader.loadProfesori();
 		loader.loadClase();
 		loader.loadStudenti();
+	}
+	
+	public void loadFromDatabase() throws Exception {
+		Database database=Database.getInstance(this);
+		
+		adaugaMaterii(database.readMaterii());
+		profesori.addAll(database.readProfesori());
+		clase.addAll(database.readClase());
+		
+		for(Student student:database.readStudenti()) {
+			adaugaStudent(student);
+		}
+		database.readSituatie();
 	}
 }
