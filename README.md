@@ -17,9 +17,15 @@ Optiuni posibile:
 11) Afiseaza absente student
 12) Adauga materie
 13) Adauga materii default
+14) Editeaza profesor
+15) Editeaza clasa
+16) Editeaza student
+17) Editeaza materii
 20) Scrie in CSV
+21) Scrie in baza de date
 ```
 Se recomanda executarea comenzilor in ordinea:
+ - 13\) Adauga materii default - pentru crearea automata a materiilor
  - 2\) Creeaza profesor
  - 1\) Creeaza clasa
  - 3\) Creeaza student
@@ -28,10 +34,18 @@ Se recomanda executarea comenzilor in ordinea:
 
 Va mentine datele despre studenti, profesori, materii si clase
 ```
+public void adaugaMaterii(List<Materie> materii_in)               -- adauga materiile la toate clasele
+public void adaugaMaterie(String materie_nume)                    -- adauga o singura materie
 public void adaugaClasa(String clasa_numa,String diriginte_nume)  -- creaza o clasa cu numele dat si diriginte. **ATENTIE**: Dirigintele e un profesor si trenuit creat dinainte
 public void adaugaProfesor(String nume,String materie)            -- creeaza un profesor cu numele dat si care preda materia. Materia e un string: Romana, Matematica, Fizica, Engleza
 public void adaugaStudent(String student_nume,String clasa_nume)  -- Creeaza un student cu nume. Clasa trebuie sa existe deja
-getProfesor(), getClasa(), getMaterie(), getStudent() cauta in liste obiectele cerute dupa nume
+
+
+getProfesor(), getClasa(), getMaterie(), getStudent()              -- cauta in liste obiectele cerute dupa nume
+getProfesori(), getMaterii(), getClase(), getStudenti()            -- returneaza toate referintele catre obiectele cerute
+
+loadSavedData()                                                    -- incarca datele din fisere csv
+loadFromDatabase()                                                 -- incarca datele din baza de date
 ```
 
 **Interfata: Nameable**  
@@ -43,9 +57,9 @@ getName()
 
 **Student**:
 ```
-public Clasa getSchoolClass()   -- Returneaza clasa la care participa studentul
-mediaPeSemestru(int)            -- Returneaza media luata dupa catalog
-public void setSchoolClass(Clasa clasa) -- Seteaza clasa
+public Clasa getSchoolClass()                -- Returneaza clasa la care participa studentul
+public void setSchoolClass(Clasa clasa)      -- Seteaza clasa
+public Situatie getSituatie(Materie materie) -- Returneaza situatie elevului
 
 setName()
 getName()
