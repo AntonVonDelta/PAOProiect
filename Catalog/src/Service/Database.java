@@ -26,7 +26,8 @@ public class Database {
 	private static Database instance;
 	private AppService service;
 	private Connection con;
-	
+	private final static String DBUSER="mdsuser";
+	private final static String DBPASS="verdeatademare";
 	private Database() {}
 	
 	public static Database getInstance(AppService service) throws SQLException {
@@ -34,7 +35,7 @@ public class Database {
 			instance=new Database();
 		}
 		instance.service=service;
-		instance.con=DriverManager.getConnection("jdbc:mysql://localhost:3306/catalog","mdsuser","verdeatademare"	);
+		instance.con=DriverManager.getConnection("jdbc:mysql://localhost:3306/catalog",DBUSER,DBPASS);
 		
 		return instance;
 	}
